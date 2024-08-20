@@ -4,7 +4,7 @@ pipeline {
     agent any
 
     environment {
-        REPO_URL = 'https://github.com/your-org/project-a-repo.git'
+        REPO_URL = 'https://github.com/vijay8564/project-1-ss.git'
         BRANCH = 'main'
         MAVEN_HOME = '/usr/share/maven'
         NEXUS_REPO_URL = 'http://nexus.example.com/repository/maven-releases/'
@@ -23,14 +23,15 @@ pipeline {
 
         stage('Build') {
             steps {
-                mvnBuild('clean install', MAVEN_HOME)
+                mvnBuild('clean package', MAVEN_HOME)
             }
         }
-
+        /*
         stage('Deploy') {
             steps {
                 deployToNexus(NEXUS_REPO_URL, CREDENTIALS_ID, GROUP_ID, ARTIFACT_ID, VERSION, 'jar', 'target/*.jar')
             }
         }
+        */
     }
 }
