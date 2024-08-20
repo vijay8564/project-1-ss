@@ -26,6 +26,17 @@ pipeline {
                 mvnBuild('clean package', MAVEN_HOME)
             }
         }
+
+        stage('sonar') {
+            steps {
+                sh "mvn clean verify sonar:sonar \
+  -Dsonar.projectKey=ss \
+  -Dsonar.projectName='ss' \
+  -Dsonar.host.url=http://4.247.22.221:32768 \
+  -Dsonar.token=sqp_5b44d262d940b7f70c1738b68142c5bbb3e45a4e
+                "
+            }
+        }
         /*
         stage('Deploy') {
             steps {
