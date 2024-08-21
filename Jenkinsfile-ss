@@ -26,6 +26,11 @@ pipeline {
                 mvnBuild('clean package', MAVEN_HOME)
             }
         }
+        stage('Docker Build') {
+            steps {
+                dockerBuild(IMAGE_NAME)
+            }
+        }
         /*
         stage('sonar') {
             steps {
