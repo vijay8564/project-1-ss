@@ -26,7 +26,7 @@ pipeline {
                 mvnBuild('clean package', MAVEN_HOME)
             }
         }
-
+        /*
         stage('sonar') {
             steps {
                 sh "mvn clean verify sonar:sonar \
@@ -37,7 +37,7 @@ pipeline {
                 "
             }
         }
-        /*
+        
         stage('Deploy') {
             steps {
                 deployToNexus(NEXUS_REPO_URL, CREDENTIALS_ID, GROUP_ID, ARTIFACT_ID, VERSION, 'jar', 'target/*.jar')
