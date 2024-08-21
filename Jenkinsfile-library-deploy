@@ -1,10 +1,10 @@
-@Library('your-shared-library') _
+@Library('my-shared-library') _
 pipeline {
     agent any
 
     environment {
-        REPO_URL = 'https://your.repo.url/your-project.git'
-        BRANCH = 'main'
+        REPO_URL = 'https://github.com/vijay8564/project-1-ss.git'
+        BRANCH = 'master'
         SONAR_PROJECT_KEY = 'your-project-key'
         SONAR_HOST_URL = 'http://sonarqube.yourcompany.com'
         SONAR_LOGIN_TOKEN = 'your-sonarqube-token'
@@ -30,7 +30,7 @@ pipeline {
                 mvnBuild()
             }
         }
-
+        /*
         stage('SonarQube Analysis') {
             steps {
                 sonarQubeAnalyze(SONAR_PROJECT_KEY, SONAR_HOST_URL, SONAR_LOGIN_TOKEN)
@@ -60,5 +60,6 @@ pipeline {
                 deployToK8s(KUBECONFIG_CREDENTIALS_ID, K8S_MANIFEST_PATH)
             }
         }
+        */
     }
 }
